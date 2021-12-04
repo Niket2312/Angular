@@ -1,0 +1,7 @@
+<p>server works!</p>
+<input type="text" class="form-control" (keyup)="onUpdateServer($event)"
+    (ngModel)="serverName">
+<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">
+    Test
+</button>
+<p>{{serverCreationStatus}}</p>

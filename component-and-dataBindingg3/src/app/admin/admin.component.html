@@ -1,0 +1,7 @@
+<app-user (dataCreated)="onDataAdded($event)"></app-user>
+<div *ngFor="let elements of Element">
+    {{elements.firstName}}
+    {{elements.familyName}}
+    {{elements.countryName}}
+</div>
+<!-- <app-user (genDataCreated)="onDataaAdded($event)"></app-user> -->

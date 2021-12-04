@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form [formGroup]="signupForm" #f="ngForm">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" formControlName="username" class="form-control" #name>
+          <span class="help-block" *ngIf="!signupForm.get('username')?.valid">Please enter the valid username</span>
+        </div>
+
+        <div class="form-group">
+          <label for="username">Company</label>
+          <input type="text" id="username" formControlName="company" class="form-control" #company>
+          <span class="help-block" *ngIf="!signupForm.get('company')?.valid">Please enter the valid username</span>
+        </div>
+
+        <div class="form-group">
+          <label for="city-select">Choose city:</label>
+          <select name="city" formControlName="city" >
+            <option value="Rajkot">Rajkot</option>
+            <option value="jamnagar">Jamnagar</option>
+          </select>
+          <span class="help-block" *ngIf="!signupForm.get('city')?.valid">Please enter the valid username</span>
+        </div>
+        <div class="form-group" *ngFor="let gender of genders">
+          <input type="checkbox" [formControlName]="gender" [value]="gender" >
+          {{gender}}
+          <span class="help-block" *ngIf="!signupForm.get('gender')?.valid">Please enter the valid username</span>
+        </div>
+        <div *ngFor="let answer of answers">
+          <input type="radio" formControlName="answers" [value]="answer" >
+          {{answer}}
+          <span class="help-block" *ngIf="!signupForm.get('answers')?.valid">Please enter the valid username</span>
+        </div>
+
+        <div>
+          <input type="text" id="number" name="phone" formControlName="phone" >
+          <label for="phone">Mobile no.</label>
+          <span class="help-block" *ngIf="!signupForm.get('phone')?.valid">Please enter the valid username</span>
+        </div>
+        <button class="btn btn-primary" type="submit"
+          (click)="onSubmit2(f.value)"
+          [disabled]="!signupForm.valid">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+<table border="1" cellspacing="0" cellpadding="">
+  <th>username</th>
+  <th>Company</th>
+  <th>city</th>
+  <th>gender</th>
+  <th>isNewToCompany</th>
+  <th>Mobile no.</th>
+<tr *ngFor="let item of example.data">
+
+  <td>{{item.username}}</td>
+  <td>{{item.company}}</td>
+  <td>{{item.city}}</td>
+  <td>{{item.male}}</td>
+  <td>{{item.answers}}</td>
+  <td>{{item.phone}}</td>
+</tr>
+</table>

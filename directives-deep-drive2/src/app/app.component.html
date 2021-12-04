@@ -1,0 +1,6 @@
+<div *ngFor="let item of myObject; index as i;"  >
+    
+  <p appDynamicColor [myObject1]="item" id="p1" >
+    {{myObject[i].text}} index{{i}}<br>
+  </p>
+</div>

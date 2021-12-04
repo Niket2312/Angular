@@ -1,0 +1,10 @@
+<label>Title:</label>
+<input type="text" #title>
+<br><br>
+<label>Company:</label>
+<input type="text" #company>
+<br><br>
+<label>Place:</label>
+<input type="text" #place>
+<br><br>
+<button type="submit" (click)="onDataAdd(title.value,company.value,place.value)">Add</button>
