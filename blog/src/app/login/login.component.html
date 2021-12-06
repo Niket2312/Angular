@@ -1,0 +1,30 @@
+<form id="login-form" class="form" (ngSubmit)="onSubmit()" #f="ngForm">
+    <select id="usernameOrEmail" class="form-control" ngModel="username" required
+    (change)="onChangeInput($event)">
+    <option value="username">Username</option>
+    <option value="Email">Email</option>
+    </select>
+    <div *ngIf="isUsername">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" ngModel name="username" placeholder="Username" required #username="ngModel">
+            <span class="helpblock" *ngIf="((!username.valid) && (username.touched))" >Please enter valid username</span>       
+        </div>
+    </div>
+    <div *ngIf="isEmail">
+        <input type="email" class="form-control" pattern="^[(a-z)*(A-Z)]*@prominentpixel.com$" ngModel name="email" #email="ngModel" required>
+        <span class="helpblock" *ngIf="((!email.errors?.['required']) && (email.touched))">Please enter the valid email</span>
+        <span class="helpblock" *ngIf="((email.errors?.['pattern']) && (email.touched))">Email must end with @prominentpixel.com</span>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" name="password" class="form-control" ngModel #password="ngModel" minLength="8" required>
+        <span class="helpblock" *ngIf="((password.errors?.['required']) && (password.touched))">Please enter the password</span>
+        <span class="helpblock" *ngIf="((password.errors?.['pattern']) && (password.touched))">Password length must be of 8 characters</span>
+    </div>
+    <div>
+        <button type="button" [disabled]="f.invalid">Login</button>
+        <br><br>
+        <a routerLink="/signup">Have not any account?New user</a>
+    </div>
+</form> 
