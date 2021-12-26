@@ -1,0 +1,55 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Bootstrap Modal</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modalService.dismissAll()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form (ngSubmit)="onSubmit(form.value)" #form="ngForm"> 
+ <div>
+            <label>Title:</label>
+            <input type="text" name="title"  ngModel="{{blogEdit.title}}" #title="ngModel">
+        </div><br>
+        <div>
+            <label>Description</label>
+            <ckeditor
+            [editor]="Editor"
+            name="description"
+            ngModel="{{blogEdit.description}}"
+            #description="ngModel"
+            >
+            </ckeditor>
+        </div><br>
+        <div>
+            <label>Image Url</label>
+            <input type="text" name="imageurl" ngModel="{{blogEdit.imageurl}}" #imageurl="ngModel">
+        </div>
+        <div>
+            <img [src]="imageurl.value" style="max-width: 150px; max-height: 150px;">
+        </div>
+        <div >
+                <label>Tags</label>
+            <ng-multiselect-dropdown 
+            [placeholder]="'Tags'"
+            [settings]="languageSettings"
+            [data]="languageList"
+            [(ngModel)]="blogEdit.languages"
+            name="languages"
+            #languages="ngModel"
+            >
+            </ng-multiselect-dropdown>
+        
+            
+        </div><br>
+        <div>
+            <label>Author</label>
+            <input type="text" name="author"   ngModel={{loginservice.username}} #author="ngModel" readonly>
+        </div><br>
+        
+    </form>
+
+</div>
+<div class="modal-footer">
+    <button type="submit" (click)="onSubmit(form.value)">Publish</button>
+
+  </div>

@@ -1,0 +1,9 @@
+<div class="header">
+    <img [src]="img" style="max-width: 120px;">
+    <div class="header-right">
+      <a  routerLink="blog">Blog</a>
+      <a routerLink="myblog" >MyBlog</a>
+      <a *ngIf="loginservice.username==''" routerLink="login">Login</a><br><br>
+      <p *ngIf="loginservice.username!= ''"> Welcome {{loginservice.username}}</p>
+    </div>
+  </div>

@@ -1,0 +1,19 @@
+<table border="1" class="table">
+   <tr>
+    <th>id</th>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Tags</th>
+    <th colspan="2">Actions</th>
+   </tr>
+    
+    <tr *ngFor="let item of blog,let i=index">
+        <td (click)="onClick(item.id)">{{i+1}}</td>
+        <td (click)="onClick(item.id)">{{item.title}}</td>
+        <td (click)="onClick(item.id)">{{item.author}}</td>
+        <td (click)="onClick(item.id)" ><div *ngFor="let elements of item.languages">{{elements.language_text}}</div></td>
+        <td><button type="submit" (click)="onEdit(item.id)">edit</button> 
+        <button type="submit" (click)="onDelete(item.id)">delete</button></td>   
+            
+    </tr>
+</table>

@@ -1,0 +1,15 @@
+<button type="submit" routerLink="new">write something to make world better</button>
+<table class="table" border="1">
+    <th>Id</th>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Tags</th>
+
+
+    <tr *ngFor="let item of blogservice.blog,let i=index">
+        <td (click)="onClick(item.id)">{{i+1}}</td>
+        <td (click)="onClick(item.id)">{{item.title}}</td>
+        <td (click)="onClick(item.id)">{{item.author}}</td>
+        <td (click)="onClick(item.id)" ><div *ngFor="let elements of item.languages">{{elements.language_text}}</div></td>
+    </tr>
+</table>

@@ -1,0 +1,42 @@
+<form (ngSubmit)="onSubmit(form.value)" #form="ngForm">
+    <div>
+        <label>Title:</label>
+        <input type="text" name="title" ngModel #title="ngModel">
+    </div><br>
+    <div>
+        <label>Description</label>
+        <ckeditor
+        [editor]="Editor"
+        name="description"
+        ngModel
+        #description="ngModel"
+        >
+        </ckeditor>
+    </div><br>
+    <div>
+        <label>Image Url</label>
+        <input type="text" name="imageurl" ngModel #imageurl="ngModel">
+    </div>
+    <div>
+        <img [src]="imageurl.value" style="max-width: 150px; max-height: 150px;">
+    </div>
+    <div>
+        <label>Tags</label>
+        <ng-multiselect-dropdown 
+        [placeholder]="'Tags'"
+        [settings]="languageSettings"
+        [data]="languageList"
+        ngModel
+        name="languages"
+        #languages="ngModel"
+        >
+        </ng-multiselect-dropdown>
+    </div><br>
+    <div>
+        <label>Author</label>
+        <input type="text" name="author"  ngModel={{loginservice.username}} #author="ngModel" readonly>
+    </div><br>
+    <div>
+        <button type="submit">Publish</button>
+    </div>
+</form>

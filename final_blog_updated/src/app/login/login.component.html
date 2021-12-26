@@ -1,0 +1,160 @@
+<!-- <form (ngSubmit)="onSubmit(form.value)" #form="ngForm">
+    <select name="usernameOrEmail" (change)="onChange($any($event.target).value)">
+        <option value="username">username</option>
+        <option value="email">email</option>
+    </select>
+    <br><br>
+    <div *ngIf="isUserName">
+        <label for="username">Username:</label>
+        <input type="text" name="username" pattern="^[a-zA-Z]([._-]?[a-zA-Z0-9]+)*$"
+        ngModel #username="ngModel" required>
+        <span *ngIf="!username.valid && username?.touched">
+            !please enter valid username
+        </span>
+    </div>
+    <div *ngIf="isEmail">
+        <label for="email">Email:</label>
+        <input type="email" name="email" pattern="^[A-Za-z0-9._%+-]+@prominentpixel.com$"
+        ngModel #email="ngModel" required>
+        <span *ngIf="!email.valid && email?.touched">
+            !please enter valid email which ends with @prominentpixel.com
+        </span>
+    </div>
+    <div>
+        <label for="password">Password:</label>
+        <input type="password" name="password" ngModel #password="ngModel" required>
+    </div>
+    <div>
+        <button type="submit" [disabled]="!form.valid">Login</button>
+    </div>
+    <br>
+    <div>
+        <a style="color: blue;" routerLink="/signup">Have not any account?Create new one</a>
+    </div>
+</form> -->
+<!DOCTYPE html>
+<html>
+<style>
+    /*set border to the form*/
+      
+    form {
+        border: 3px solid #f1f1f1;
+    }
+    /*assign full width inputs*/
+      
+    input[type=text],
+    input[type=password] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+    /*set a style for the buttons*/
+      
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+    }
+    /* set a hover effect for the button*/
+      
+    button:hover {
+        opacity: 0.8;
+    }
+    /*set extra style for the cancel button*/
+      
+    .cancelbtn {
+        width: auto;
+        padding: 10px 18px;
+        background-color: #f44336;
+    }
+    /*centre the display image inside the container*/
+      
+    .imgcontainer {
+        text-align: center;
+        margin: 24px 0 12px 0;
+    }
+    /*set image properties*/
+      
+    img.avatar {
+        width: 40%;
+        border-radius: 50%;
+    }
+    /*set padding to the container*/
+      
+    .container {
+        padding: 16px;
+    }
+    /*set the forgot password text*/
+      
+    span.psw {
+        float: right;
+        padding-top: 16px;
+    }
+    /*set styles for span and cancel button on small screens*/
+      
+    @media screen and (max-width: 300px) {
+        span.psw {
+            display: block;
+            float: none;
+        }
+        .cancelbtn {
+            width: 100%;
+        }
+    }
+</style>
+  
+<body>
+  
+    <h2>Login Form</h2>
+    <!--Step 1 : Adding HTML-->
+    <form (ngSubmit)="onSubmit(form.value)" #form="ngForm">       
+  
+        <div class="container">
+        <select name="usernameOrEmail" (change)="onChange($any($event.target).value)">
+        <option value="username">username</option>
+        <option value="email">email</option>
+    </select>
+    <div *ngIf="isUserName">
+    <label for="username">Username:</label>
+    <input type="text" name="username" pattern="^[a-zA-Z]([._-]?[a-zA-Z0-9]+)*$"
+    ngModel #username="ngModel" required>
+    <span *ngIf="!username.valid && username?.touched">
+        !please enter valid username
+    </span>
+</div>
+<div *ngIf="isEmail">
+<label for="email">Email:</label>
+<input type="email" name="email" pattern="^[A-Za-z0-9._%+-]+@prominentpixel.com$"
+ngModel #email="ngModel" required>
+<span *ngIf="!email.valid && email?.touched">
+    !please enter valid email which ends with @prominentpixel.com
+</span>
+</div>
+<div>
+<label for="password">Password:</label>
+<input type="password" name="password" ngModel #password="ngModel" required>
+</div>
+<div>
+<button type="submit" [disabled]="!form.valid">Login</button>
+</div>
+<br>
+<div>
+<a style="color: blue;" routerLink="/signup">Have not any account?Create new one</a>
+</div>
+
+        </div>
+  
+
+    </form>
+    <hr>
+  
+</body>
+  
+</html>

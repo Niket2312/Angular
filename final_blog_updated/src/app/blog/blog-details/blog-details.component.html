@@ -1,0 +1,11 @@
+<div>
+    Title:{{blog.title}}<br>
+    Image:<img [src]="blog.imageurl" style="max-width: 80px; max-height: 80px;"><br>
+    Description:{{blog.description}}<br>
+    Author:{{blog.author}}<br>
+    Languages:<div *ngFor="let item of blog.languages">{{item.language_text}}</div>
+    <div>
+        <a class="previous" (click)="onBack()">&laquo;Back</a>
+        <a class="next" (click)="onForward()">&laquo;next</a>
+    </div>
+</div>
