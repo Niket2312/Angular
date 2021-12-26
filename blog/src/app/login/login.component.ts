@@ -27,8 +27,8 @@ onChangeInput(value1: any){
   }
 }
   constructor() { }
-  ngOnInit(): void {
-  }
+  // ngOnInit(): void {
+  // }
 
 }
 
