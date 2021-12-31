@@ -54,6 +54,6 @@ export class AppComponent  {
   }
   onEdit(id){  
     console.log(id);
-     this.postservice.editId(id)
+     this.postData=this.postservice.editId(id)
   }
   }

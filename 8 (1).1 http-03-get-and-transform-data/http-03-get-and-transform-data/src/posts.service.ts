@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
     providedIn: 'root'
 })
 export class PostService{
-    loadedService=[]
+    loadedService:any=[]
     constructor(private http: HttpClient) {}
 
     onFetchPosts(){
@@ -32,9 +32,9 @@ export class PostService{
     }
     editId(id){
         console.log(id);
-        console.log(this.loadedService);
+     
+       return this.loadedService.find(x=>x.id==id)
 
-        return this.loadedService=this.loadedService.filter(x=>x.id==id)
         
     }
 
