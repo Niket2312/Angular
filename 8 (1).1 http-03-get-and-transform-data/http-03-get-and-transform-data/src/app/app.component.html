@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <form #postForm="ngForm" (ngSubmit)="onCreatePost(postForm.value)">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            required
+            ngModel
+            name="title"
+            value="{{postData?.title}}"
+          />
+        </div>
+        
+        <div class="form-group">
+          <label for="content">Content</label>
+          <textarea
+            class="form-control"
+            id="content"
+            required
+            ngModel
+            name="content"
+            value="{{postData?.content}}"
+          ></textarea>
+        </div>
+        <button
+          class="btn btn-primary"
+          type="submit"
+          [disabled]="!postForm.valid"
+          *ngIf="!toggleButton"
+
+        >
+          Send Post
+        </button>
+        <button
+        class="btn btn-primary"
+        type="submit"
+        [disabled]="!postForm.valid"
+      >
+        edit Post
+      </button>
+      
+      </form>
+    </div>
+  </div>
+  <hr />
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <button class="btn btn-primary" (click)="onFetchPosts()">
+        Fetch Posts
+      </button>
+      |
+      <button
+        class="btn btn-danger"
+        (click)="onClearPosts()"
+      >
+        Clear Posts
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <p>No posts available!</p>
+      <div class="row">
+        <div class="col-xs-12" *ngFor="let post of postservice.loadedService;let i=index">
+          <h4 (click)="onClick(post.id)">{{post.title}}</h4>
+          <p (click)="onClick(post.id)">{{post.content}}</p>
+          <button (click)="onDelete(post.id)" class="btn btn-danger">Delete</button>|
+          <button (click)="onEdit(post.id)" class="btn btn-primary" >Edit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
