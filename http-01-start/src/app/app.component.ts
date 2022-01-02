@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import {Map}
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -33,7 +33,8 @@ export class AppComponent implements OnInit {
     // Send Http request
   }
   private fetchPost(){
-    this.http.get('https://practice-http-58491-default-rtdb.firebaseio.com/posts.json').subscribe(post=>{
+    this.http.get('https://practice-http-58491-default-rtdb.firebaseio.com/posts.json').
+    subscribe(post=>{
       console.log(post);
       
     })

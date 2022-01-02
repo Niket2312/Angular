@@ -6,6 +6,8 @@ import { map } from 'rxjs/operators';
     providedIn: 'root'
 })
 export class Posts{
+  loadedPosts = [];
+
     constructor(private http:HttpClient){}
     onCreatePost(postData) {
         // Send Http request
@@ -40,8 +42,15 @@ export class Posts{
         )
       
     }
-    deletePosts(){
-       return this.http.delete('https://practice-http-58491-default-rtdb.firebaseio.com/posts.json')
+    deletePosts(
+
+
+    ){
+        this.http.delete('https://practice-http-58491-default-rtdb.firebaseio.com/posts.json')
+        .subscribe((posts)=>{
+          console.log(posts)
+        })
     }
       }
+
     

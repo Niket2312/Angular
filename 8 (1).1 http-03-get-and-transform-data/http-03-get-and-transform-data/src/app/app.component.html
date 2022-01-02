@@ -8,9 +8,9 @@
             type="text"
             class="form-control"
             required
-            ngModel
+            ngModel="{{postData?.title}}"
             name="title"
-            value="{{postData?.title}}"
+            
           />
         </div>
         
@@ -20,27 +20,26 @@
             class="form-control"
             id="content"
             required
-            ngModel
+            ngModel="{{postData?.content}}"
             name="content"
-            value="{{postData?.content}}"
           ></textarea>
         </div>
         <button
           class="btn btn-primary"
           type="submit"
-          [disabled]="!postForm.valid"
           *ngIf="!toggleButton"
-
         >
           Send Post
         </button>
         <button
-        class="btn btn-primary"
-        type="submit"
-        [disabled]="!postForm.valid"
-      >
-        edit Post
-      </button>
+          class="btn btn-primary"
+          type="submit"
+          *ngIf="toggleButton"
+          (click)="onClick2(postForm.value,postData.id)"
+        >
+          edit Post
+        </button>
+        
       
       </form>
     </div>
