@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col-xs-12">
+        <form (ngSubmit)="onSubmit(form.value)"  #form="ngForm">
+            <input type="text" ngModel name="name" >
+            <input type="text" ngModel name=surname>
+            <input type="date" ngModel name="date">
+            <button type="button" (click)="onSubmit(form.value)">Button</button>
+            <p>{{tempName}}</p>
+            <p>{{name2}}</p>
+        </form>
+    </div>
+</div>
+

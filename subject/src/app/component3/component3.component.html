@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-xs-12">
+        <form (ngSubmit)="onSubmit(form.value)" #form="ngForm">
+            <button type="button"  (click)="onSubmit(form.value)">Button</button>
+            <input type="text" ngModel="{{fname}}" name="name" >
+            <input type="text" ngModel="{{surname2}}" name="surname">
+            <input type="date" ngModel="{{date}}" name="date">
+            <select name="cars" id="cars" ngModel name="select">
+                <option value="volvo">Volovo</option>
+                <option value="saab">Saab</option>
+                <option value="BMW">BMW</option>
+            </select>
+            <div *ngFor="let elements of name">
+            <p>{{elements.name}}</p>
+            <p>{{elements.surname}}</p>
+            <p>{{elements.date}}</p>
+            <p>{{elements.select}}</p>
+        </div>
+        <p>{{tempName}}</p>
+        </form>
+    </div>
+</div>

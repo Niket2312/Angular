@@ -1,0 +1,5 @@
+<form #f="ngForm">
+    <input type="text" name="name" ngModel>
+    <button type="button" (click)="onSubmit(name)">Submit</button>
+    <p>{{name}}</p>
+</form>

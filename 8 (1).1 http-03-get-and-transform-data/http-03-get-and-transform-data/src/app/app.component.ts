@@ -35,7 +35,11 @@ export class AppComponent  {
   })  
   }
   onClearPosts(){
-
+    this.http.delete('https://practice-http-58491-default-rtdb.firebaseio.com/posts.json')
+    .subscribe(posts=>{
+      console.log(posts);
+      
+    })
   }
   onClick(id){
     this.postData=this.postservice.getId(id)
@@ -54,6 +58,20 @@ export class AppComponent  {
   }
   onEdit(id){  
     console.log(id);
+    this.toggleButton=true
      this.postData=this.postservice.editId(id)
   }
+  onClick2(postForm,id){
+    console.log(id);
+    console.log(postForm);
+    
+    this.http.put(`https://practice-http-58491-default-rtdb.firebaseio.com/posts/${id}.json`,postForm)
+    .subscribe(posts=>{
+      console.log(posts);
+      
+    })
+    
+    this.toggleButton=false
+  }
+
   }
