@@ -1,0 +1,7 @@
+<form #form>
+    Name:<input type="text" name="name" ngModel #name="ngModel"><br><br>
+    password:<input type="password" name="password" ngModel #password="ngModel"><br><br>
+    <button type="submit" (click)="onSignup(name.value,password.value)">Sign up</button>
+    <button type="submit" (click)="onLogin(name.value,password.value)">Login</button>
+
+</form>

@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-xs-12">
+        <form #form="ngForm">
+            <div class="form-group" class="col-sm-4 control-label">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" ngModel name="name">
+            </div>
+            <div class="form-group" class="col-sm-4 control-label">
+                <label for="subject">Subject</label>
+                <input type="text" class="form-control" ngModel name="subject">
+            </div><br>
+            <div>
+                <button type="button" class="btn btn-primary" (click)="onSubmit(form.value)">Submit</button>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div *ngFor="let elements of getData">
+                        <p>{{elements.name}}</p>
+                        <p>{{elements.subject}}</p>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
